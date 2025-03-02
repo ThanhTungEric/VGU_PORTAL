@@ -19,6 +19,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/admin" element={<div>Admin</div>} />
                 </Routes>
             </ThemeProvider>
         </>
