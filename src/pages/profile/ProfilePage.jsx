@@ -35,7 +35,7 @@ export default function ProfilePage() {
             }}
         >
             <LeftPanel>
-                <AccountCircle sx={{ width: 120, height: 120 }} color="primary" />
+                <AccountCircle sx={{ width: 120, height: 120 }} />
                 <div>
                     {/* Display user's name, please use React context useUser to update */}
                     <Typography variant="h4">Nguyen Van A</Typography>
