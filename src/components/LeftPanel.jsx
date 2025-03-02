@@ -9,7 +9,7 @@ export default function LeftPanel({ children, sx }) {
                 display: "flex",
                 width: "30%",
                 height: "100%",
-                backgroundColor: "#E7ECED",
+                backgroundColor: "#f5f5f5",
                 minWidth: "250px",
                 justifyContent: "center",
                 alignItems: "center",
