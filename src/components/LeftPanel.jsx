@@ -7,13 +7,14 @@ export default function LeftPanel({ children, sx }) {
         <Box
             sx={{
                 display: "flex",
-                width: "20%",
+                width: "30%",
+                height: "100%",
                 backgroundColor: "#E7ECED",
-                ...sx,
                 minWidth: "250px",
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
+                ...sx,
             }}
         >
             {children}

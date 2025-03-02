@@ -7,12 +7,9 @@ export default function RightPanel({ children, sx }) {
         <Box
             sx={{
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingLeft: "10px",
-                paddingRight: "10px",
                 width: "100%",
                 minWidth: "700px",
+                ...sx,
             }}
         >
             {children}
