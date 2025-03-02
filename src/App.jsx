@@ -1,7 +1,6 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react";
 import { Routes, Route } from "react-router";
-import NavigationBar from "./components/NavigationBar/NavigationBar";
+import NavigationBar from "./components/NavigationBar";
 import "./App.css";
 import { ThemeProvider } from "@mui/material";
 // @ts-ignore
