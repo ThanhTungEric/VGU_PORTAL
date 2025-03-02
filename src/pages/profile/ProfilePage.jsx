@@ -68,6 +68,7 @@ export default function ProfilePage() {
                             gap: "10px",
                             textAlign: "left",
                             width: "100%",
+                            marginLeft: "64px",
                         }}
                     >
                         <Box display="flex" alignItems="center">
@@ -116,6 +117,7 @@ export default function ProfilePage() {
                             gap: "10px",
                             textAlign: "left",
                             width: "100%",
+                            marginLeft: "64px",
                         }}
                     >
                         <Box display="flex" alignItems="center">
