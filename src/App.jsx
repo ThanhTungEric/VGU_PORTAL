@@ -1,23 +1,29 @@
-import React, { useState } from "react";
-import Login from "./authen/Login";
-import Home from "./home/Home";
-import RolePermissionMatrix from "./permissions/RolePermissionMatrix"; // Import giao diện mới
+import React from "react";
+import { Routes, Route } from "react-router";
+import NavigationBar from "./components/NavigationBar";
+import "./App.css";
+import { ThemeProvider } from "@mui/material";
+// @ts-ignore
+import theme from "./libs/theme.js";
+import HomePage from "./pages/home/HomePage";
+import LoginPage from "./pages/login/LoginPageNew";
+import ProfilePage from "./pages/profile/ProfilePage";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [showRolePermission, setShowRolePermission] = useState(false); // Trạng thái hiển thị Role-Permission
-
-  return (
-    <>
-      {!isAuthenticated ? (
-        <Login onLogin={() => setIsAuthenticated(true)} />
-      ) : showRolePermission ? (
-        <RolePermissionMatrix onBack={() => setShowRolePermission(false)} />
-      ) : (
-        <Home onShowRolePermission={() => setShowRolePermission(true)} />
-      )}
-    </>
-  );
+    const isLogin = true;
+    return (
+        <>
+            <ThemeProvider theme={theme}>
+                {isLogin ? <NavigationBar /> : null}
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/admin" element={<div>Admin</div>} />
+                </Routes>
+            </ThemeProvider>
+        </>
+    );
 }
 
 export default App;
