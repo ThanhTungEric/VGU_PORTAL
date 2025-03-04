@@ -1,25 +1,20 @@
 import React, { useState } from "react";
-import RoleSelection from "./authen/RoleSelection";
 import Login from "./authen/Login";
-import Home from "./home/Home"; // Import trang Home
+import Home from "./home/Home";
+import RolePermissionMatrix from "./permissions/RolePermissionMatrix"; // Import giao diện mới
 
 function App() {
-  const [selectedRole, setSelectedRole] = useState(null); // Vai trò người dùng
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Trạng thái đăng nhập
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showRolePermission, setShowRolePermission] = useState(false); // Trạng thái hiển thị Role-Permission
 
   return (
     <>
       {!isAuthenticated ? (
-        selectedRole ? (
-          <Login 
-            onBack={() => setSelectedRole(null)} 
-            onLogin={() => setIsAuthenticated(true)} // Khi đăng nhập thành công
-          />
-        ) : (
-          <RoleSelection onSelectRole={(role) => setSelectedRole(role)} />
-        )
+        <Login onLogin={() => setIsAuthenticated(true)} />
+      ) : showRolePermission ? (
+        <RolePermissionMatrix onBack={() => setShowRolePermission(false)} />
       ) : (
-        <Home userType={selectedRole === "Administrator" ? "staff" : "student"} />
+        <Home onShowRolePermission={() => setShowRolePermission(true)} />
       )}
     </>
   );

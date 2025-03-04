@@ -14,18 +14,16 @@ const staffApps = {
   google: ["Account", "Gmail", "Drive", "Classroom", "Docs", "Sheets", "Slides", "Meet", "Calendar", "Forms"],
 };
 
-const Home = ({ userType }) => {
+const Home = ({ userType, onShowRolePermission }) => {
   const apps = userType === "staff" ? staffApps : studentApps;
-  const [selectedApp, setSelectedApp] = useState(null); // Lưu app đang chọn
-  const [open, setOpen] = useState(false); // Kiểm soát Dialog
+  const [selectedApp, setSelectedApp] = useState(null);
+  const [open, setOpen] = useState(false);
 
-  // Mở hộp thoại khi chọn app
   const handleAppClick = (app) => {
     setSelectedApp(app);
     setOpen(true);
   };
 
-  // Đóng hộp thoại
   const handleClose = () => {
     setOpen(false);
     setSelectedApp(null);
@@ -47,11 +45,11 @@ const Home = ({ userType }) => {
         sx={{
           width: "90%",
           paddingTop: "16px",
-          paddingBottom: "8px", // Tạo khoảng cách giữa nội dung và đường kẻ
+          paddingBottom: "8px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          borderBottom: "4px solid #f58220", // Đường thẳng màu cam
+          borderBottom: "4px solid #f58220",
         }}
       >
         <Box component="img" src={Logo} alt="VGU Logo" sx={{ width: "150px" }} />
@@ -75,6 +73,16 @@ const Home = ({ userType }) => {
           }}
         />
       </Box>
+
+      {/* Manage Permissions Button */}
+      <Button
+        variant="contained"
+        color="secondary"
+        sx={{ marginTop: "20px" }}
+        onClick={onShowRolePermission}
+      >
+        Manage Permissions
+      </Button>
     </Box>
   );
 };
