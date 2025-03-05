@@ -51,7 +51,7 @@ export default function AdminPage() {
                     paddingTop: "10vh",
                     paddingBottom: "10vh",
                     paddingLeft: "64px",
-                    paddingRight: "64px",
+                    paddingRight: "25px",
                 }}
             >
                 <TabPanel value={value} index={0}>
