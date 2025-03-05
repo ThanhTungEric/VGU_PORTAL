@@ -58,7 +58,7 @@ export default function AdminPage() {
                     <div></div>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    Dick
+                    pppppp
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     KOPDWQ
