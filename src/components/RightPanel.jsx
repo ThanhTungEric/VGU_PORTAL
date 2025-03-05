@@ -7,7 +7,7 @@ export default function RightPanel({ children, sx }) {
         <Box
             sx={{
                 display: "flex",
-                width: "100%",
+                width: "100vw",
                 minWidth: "700px",
                 ...sx,
             }}

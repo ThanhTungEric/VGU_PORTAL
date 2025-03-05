@@ -19,7 +19,14 @@ export default function AdminPage() {
         setValue(newValue);
     };
     return (
-        <>
+        <div
+            style={{
+                display: "flex",
+                width: "100%",
+                height: "calc(100vh - 64px)",
+                marginTop: "64px",
+            }}
+        >
             <LeftPanel>
                 <Tabs
                     orientation="vertical"
@@ -30,7 +37,6 @@ export default function AdminPage() {
                     sx={{
                         borderRight: 1,
                         borderColor: "divider",
-                        width: "20vw",
                         backgroundColor: "white",
                         borderRadius: "10px",
                     }}
@@ -40,11 +46,24 @@ export default function AdminPage() {
                     <Tab label="Group Management" {...tabProps(2)} />
                 </Tabs>
             </LeftPanel>
-            <RightPanel>
-                <TabPanel value={value} index={0}></TabPanel>
-                <TabPanel value={value} index={1}></TabPanel>
-                <TabPanel value={value} index={2}></TabPanel>
+            <RightPanel
+                sx={{
+                    paddingTop: "10vh",
+                    paddingBottom: "10vh",
+                    paddingLeft: "64px",
+                    paddingRight: "64px",
+                }}
+            >
+                <TabPanel value={value} index={0}>
+                    <div></div>
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    Dick
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    KOPDWQ
+                </TabPanel>
             </RightPanel>
-        </>
+        </div>
     );
 }
