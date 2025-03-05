@@ -61,10 +61,10 @@ const RoleSelection = ({ onSelectRole }) => {
                         height: "auto",
                         mb: 4,
                     }}
-                    onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = "https://via.placeholder.com/220x100?text=VGU+Logo";
-                    }}
+                    // onError={(e) => {
+                    //     e.target.onerror = null;
+                    //     e.target.src = "https://via.placeholder.com/220x100?text=VGU+Logo";
+                    // }}
                 />
 
                 {/* Role Buttons */}
