@@ -21,8 +21,3 @@ export default function LeftPanel({ children, sx }) {
         </Box>
     );
 }
-
-LeftPanel.propTypes = {
-    children: PropType.node.isRequired,
-    sx: PropType.object,
-};

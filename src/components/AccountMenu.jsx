@@ -76,6 +76,10 @@ export default function AccountMenu() {
                     <Avatar /> My account
                 </MenuItem>
                 <Divider />
+                <MenuItem onClick={() => navigator("/admin")}>
+                    <ListItemIcon></ListItemIcon>
+                    Admin
+                </MenuItem>
                 <MenuItem onClick={() => navigator("/manage-app-group")}>
                     <ListItemIcon>
                         <PersonAdd fontSize="small" />
