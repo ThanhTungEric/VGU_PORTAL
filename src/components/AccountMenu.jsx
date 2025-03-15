@@ -6,33 +6,32 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Logout from "@mui/icons-material/Logout";
+import { useNavigate } from "react-router";
 
 export default function AccountMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const navigator = useNavigate();
     const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+
     return (
         <React.Fragment>
             <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
                 <Tooltip title="Account settings">
                     <IconButton
-                        onClick={handleClick}
-                        size="small"
-                        sx={{ ml: 2 }}
+                        onClick={(event) => setAnchorEl(event.currentTarget)}
                         aria-controls={open ? "account-menu" : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
+                        edge="end"
+                        aria-label="account of current user"
+                        color="inherit"
+                        size="large"
+                        sx={{ width: 64, height: 64 }}
                     >
-                        <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                        <Avatar sx={{ width: 42, height: 42 }}>M</Avatar>
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -40,8 +39,8 @@ export default function AccountMenu() {
                 anchorEl={anchorEl}
                 id="account-menu"
                 open={open}
-                onClose={handleClose}
-                onClick={handleClose}
+                onClose={() => setAnchorEl(null)}
+                onClick={() => setAnchorEl(null)}
                 slotProps={{
                     paper: {
                         elevation: 0,
@@ -73,17 +72,17 @@ export default function AccountMenu() {
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={() => navigator("/profile")}>
                     <Avatar /> My account
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={() => navigator("/manage-app-group")}>
                     <ListItemIcon>
                         <PersonAdd fontSize="small" />
                     </ListItemIcon>
                     Manage App & Group
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={() => navigator("/logout")}>
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>
