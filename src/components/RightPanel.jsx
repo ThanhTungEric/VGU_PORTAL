@@ -16,3 +16,8 @@ export default function RightPanel({ children, sx }) {
         </Box>
     );
 }
+
+RightPanel.propTypes = {
+    children: PropType.node.isRequired,
+    sx: PropType.object,
+};

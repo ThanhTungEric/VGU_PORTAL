@@ -37,17 +37,6 @@ function NavigationBar() {
                         display: "flex",
                     }}
                 >
-                    <Button
-                        hidden={!isAdmin}
-                        color="secondary"
-                        style={{
-                            height: "48px",
-                            marginTop: "auto",
-                            marginBottom: "auto",
-                        }}
-                    >
-                        Admin
-                    </Button>
                     <IconButton
                         aria-label="show 4 new mails"
                         color="inherit"
