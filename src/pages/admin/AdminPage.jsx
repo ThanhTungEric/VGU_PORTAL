@@ -41,9 +41,10 @@ export default function AdminPage() {
                         borderRadius: "10px",
                     }}
                 >
-                    <Tab label="User Management" {...tabProps(0)} />
-                    <Tab label="App Management" {...tabProps(1)} />
-                    <Tab label="Group Management" {...tabProps(2)} />
+                    <Tab label="User" {...tabProps(0)} />
+                    <Tab label="Application" {...tabProps(1)} />
+                    <Tab label="Group" {...tabProps(2)} />
+                    <Tab label="Permissions" {...tabProps(3)} />
                 </Tabs>
             </LeftPanel>
             <RightPanel
@@ -62,6 +63,9 @@ export default function AdminPage() {
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     KOPDWQ
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    what the up 123
                 </TabPanel>
             </RightPanel>
         </div>

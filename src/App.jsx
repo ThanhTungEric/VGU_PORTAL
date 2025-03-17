@@ -8,7 +8,6 @@ import HomePage from "./pages/home/HomePage";
 import LoginPage from "./pages/login/LoginPageNew";
 import ProfilePage from "./pages/profile/ProfilePage";
 import AdminPage from "./pages/admin/AdminPage";
-import ErrorPage from "./pages/ErrorPage";
 
 function App() {
     const isLogin = true;
@@ -21,7 +20,6 @@ function App() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/admin" element={<AdminPage />} />
-                    <Route path="*" element={<ErrorPage />} />
                 </Routes>
             </ThemeProvider>
         </>
