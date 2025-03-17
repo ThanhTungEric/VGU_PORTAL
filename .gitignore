@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# test and tmp files
+test
+test.*
+tmp
+tmp.*
