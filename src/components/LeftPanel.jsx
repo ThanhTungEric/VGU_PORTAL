@@ -7,7 +7,7 @@ export default function LeftPanel({ children, sx }) {
         <Box
             sx={{
                 display: "flex",
-                width: "30vw",
+                width: "30%",
                 height: "100%",
                 backgroundColor: "#f5f5f5",
                 minWidth: "260px",
@@ -23,6 +23,6 @@ export default function LeftPanel({ children, sx }) {
 }
 
 LeftPanel.propTypes = {
-    children: PropType.node.isRequired,
+    children: PropType.node,
     sx: PropType.object,
 };

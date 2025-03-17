@@ -4,6 +4,7 @@ import { AccountCircle, MailOutline, Notifications } from "@mui/icons-material";
 import VGU_Logo from "../assets/logo_white.png";
 import { useNavigate } from "react-router";
 import React, { useState } from "react";
+import AccountMenu from "./AccountMenu";
 
 function NavigationBar() {
     const navigator = useNavigate();
@@ -19,6 +20,7 @@ function NavigationBar() {
                         alignItems: "center",
                         paddingTop: "8px",
                         paddingBottom: "8px",
+                        marginLeft: "16px",
                     }}
                     onClick={() => navigator("/")}
                 >
@@ -35,17 +37,6 @@ function NavigationBar() {
                         display: "flex",
                     }}
                 >
-                    <Button
-                        hidden={!isAdmin}
-                        color="secondary"
-                        style={{
-                            height: "48px",
-                            marginTop: "auto",
-                            marginBottom: "auto",
-                        }}
-                    >
-                        Admin
-                    </Button>
                     <IconButton
                         aria-label="show 4 new mails"
                         color="inherit"
@@ -66,19 +57,7 @@ function NavigationBar() {
                             <Notifications sx={{ width: 44, height: 44 }} />
                         </Badge>
                     </IconButton>
-                    <IconButton
-                        edge="end"
-                        aria-label="account of current user"
-                        aria-haspopup="true"
-                        color="inherit"
-                        size="large"
-                        onClick={() => {
-                            navigator("/profile");
-                        }}
-                        sx={{ width: 64, height: 64 }}
-                    >
-                        <AccountCircle sx={{ width: 44, height: 44 }} />
-                    </IconButton>
+                    <AccountMenu />
                 </Box>
             </Toolbar>
         </AppBar>
