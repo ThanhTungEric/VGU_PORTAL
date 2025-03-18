@@ -10,33 +10,29 @@ function NavigationBar() {
     const [isAdmin, setIsAdmin] = useState(true);
 
     return (
-        <AppBar position="fixed" sx={{ height: "72px" }}>
-            <Toolbar>
+        <AppBar position="fixed" sx={{ height: "72px", px: 2, boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)" }}>
+            <Toolbar sx={{ minHeight: "64px", padding: "0 10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <SchoolLogo navigator={navigator} />
                 <Box sx={{ flexGrow: 1 }} />
-                <Box
-                    sx={{
-                        display: "flex",
-                    }}
-                >
+                <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                     <IconButton
-                        aria-label="show 4 new mails"
+                        aria-label="show mails"
                         color="inherit"
-                        size="large"
-                        sx={{ width: 64, height: 64 }}
+                        size="small"
+                        sx={{ width: 40, height: 40, padding: 0.5 }}
                     >
                         <Badge badgeContent={4} color="secondary">
-                            <MailOutline sx={{ width: 44, height: 44 }} />
+                            <MailOutline sx={{ width: 28, height: 28 }} />
                         </Badge>
                     </IconButton>
                     <IconButton
-                        aria-label="show 17 new notifications"
+                        aria-label="show notifications"
                         color="inherit"
-                        size="large"
-                        sx={{ width: 64, height: 64 }}
+                        size="small"
+                        sx={{ width: 40, height: 40, padding: 0.5 }}
                     >
                         <Badge badgeContent={17} color="secondary">
-                            <Notifications sx={{ width: 44, height: 44 }} />
+                            <Notifications sx={{ width: 28, height: 28 }} />
                         </Badge>
                     </IconButton>
                     <AccountMenu />
