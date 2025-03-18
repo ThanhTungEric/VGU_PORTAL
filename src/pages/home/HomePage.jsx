@@ -1,45 +1,57 @@
-import React, {useEffect} from "react";
-import { Container, Typography, Box } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Container, CircularProgress } from "@mui/material";
 import AppCategory from "./AppCategory";
 import SearchBar from "./SearchBar";
+import {CATEGORIES, APPLICATIONS} from "../../api/admin";
 
 const Home = () => {
+    const [categories, setCategories] = useState([]);
+    const [applications, setApplications] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         document.title = "Home | VGU Portal";
+
+        // Fetch categories & applications
+        const fetchData = async () => {
+            try {
+                const categoryRes = await fetch(`${CATEGORIES}`);
+                const applicationRes = await fetch(`${APPLICATIONS}`);
+
+                const categoryData = await categoryRes.json();
+                const applicationData = await applicationRes.json();
+
+                setCategories(categoryData);
+                setApplications(applicationData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
     }, []);
+
+    if (loading) {
+        return (
+            <Container maxWidth="lg" sx={{ mt: 5, textAlign: "center" }}>
+                <CircularProgress />
+            </Container>
+        );
+    }
+
     return (
         <Container maxWidth="lg" sx={{ mt: 5 }}>
             <SearchBar />
 
-            <AppCategory
-                title="Favorite Apps"
-                apps={[
-                    { name: "Web", logo: "🌐", description: "Access internal VGU web tools." },
-                    { name: "Wiki", logo: "📝", description: "Find documentation and guides." },
-                    { name: "DMS", logo: "📂", description: "Manage digital documents." },
-                    { name: "SAP", logo: "💼", description: "Enterprise resource planning...." },
-                    { name: "Web", logo: "🌐", description: "Access internal VGU web tools." },
-                    { name: "Wiki", logo: "📝", description: "Find documentation and guides." },
-                    { name: "DMS", logo: "📂", description: "Manage digital documents." },
-                    { name: "SAP", logo: "💼", description: "Enterprise resource planning...." }
-                ]}
-            />
-            <AppCategory
-                title="Academic Apps"
-                apps={[
-                    { name: "Moodle", logo: "📚", description: "Online learning platform." },
-                    { name: "SIS", logo: "🎓", description: "Student Information System." },
-                    { name: "ILIAS", logo: "🖥", description: "E-learning management." },
-                    { name: "RedArrow", logo: "🚀", description: "VGU research tools." }
-                ]}
-            />
-            <AppCategory
-                title="Admin Apps"
-                apps={[
-                    { name: "System Logs", logo: "📜", description: "View and analyze system logs." },
-                    { name: "HR Dashboard", logo: "📊", description: "Manage employee records and payroll." }
-                ]}
-            />
+            {categories.map((category) => (
+                <AppCategory
+                    key={category.id}
+                    title={category.name}
+                    apps={applications.filter((app) => app.categoryId === category.id)}
+                />
+            ))}
         </Container>
     );
 };

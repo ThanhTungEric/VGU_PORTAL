@@ -1,31 +1,32 @@
 import React from "react";
-import { Card, CardContent, Typography, Box, Button } from "@mui/material";
-import InfoIcon from "@mui/icons-material/Info";
-import { IconButton } from "@mui/material";
+import { Card, Typography, Box } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const AppCard = ({ name, logo, description }) => {
+const AppCard = ({ name, logo, description, url }) => {
     return (
-        <Card sx={{ p: 3, textAlign: "center", borderRadius: 3 }}>
+        <Card sx={{ p: 2, textAlign: "center", borderRadius: 3 }}>
             {/* Icon Ứng Dụng */}
-            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 2 }}>
-                <Typography variant="h2">{logo}</Typography>
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 1 }}>
+                <Typography variant="h4">{logo}</Typography>
             </Box>
 
             {/* Tên ứng dụng */}
-            <Typography variant="h6" sx={{ fontWeight: "bold", fontStyle: "italic", mb: 1 }}>
+            <Typography variant="body1" sx={{ fontWeight: "bold", fontStyle: "italic", mb: 0.5 }}>
                 {name}
             </Typography>
 
             {/* Mô tả */}
-            <Typography variant="body2" color="textSecondary" sx={{ mb: 2 }}>
+            <Typography variant="body2" color="textSecondary" sx={{ mb: 1 }}>
                 {description}
             </Typography>
 
+            {/* Link đến ứng dụng */}
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 0.5 }}>
                 <Typography
                     component="a"
-                    href="#"
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant="body2"
                     sx={{
                         color: "#c65500",
@@ -35,8 +36,8 @@ const AppCard = ({ name, logo, description }) => {
                 >
                     Go to {name}
                 </Typography>
+                <ArrowForwardIcon sx={{ color: "#c65500", fontSize: 18 }} />
             </Box>
-
         </Card>
     );
 };

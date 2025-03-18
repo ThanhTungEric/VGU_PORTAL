@@ -1,4 +1,4 @@
-const API_HOST = "https://test.portal.vgu.edu.vn/api/api";
+const API_HOST = "https://test.portal.vgu.edu.vn/api";
 
 // User & Category Endpoints
 export const USER = `${API_HOST}/users`;

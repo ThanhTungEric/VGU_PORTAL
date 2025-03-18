@@ -16,10 +16,10 @@ const AppCategory = ({ title, apps }) => {
                 </Box>
             </Box>
 
-            <Grid container spacing={2} sx={{backgroundColor: "#fde9d9", p: 2, borderRadius: 2 }}>
-                {apps.map((app, index) => (
-                    <Grid item xs={12} sm={6} md={3} key={index}>
-                        <AppCard name={app.name} logo={app.logo} description={app.description} />
+            <Grid container spacing={2} sx={{ backgroundColor: "#fde9d9", p: 2, borderRadius: 2 }}>
+                {apps.map((app) => (
+                    <Grid item xs={12} sm={6} md={3} key={app.id}>
+                        <AppCard name={app.name} logo="📌" description={app.description} url={app.url} />
                     </Grid>
                 ))}
             </Grid>
