@@ -17,7 +17,7 @@ const Home = () => {
                     { name: "Web", logo: "🌐", description: "Access internal VGU web tools." },
                     { name: "Wiki", logo: "📝", description: "Find documentation and guides." },
                     { name: "DMS", logo: "📂", description: "Manage digital documents." },
-                    { name: "SAP", logo: "💼", description: "Enterprise resource planning." }
+                    { name: "SAP", logo: "💼", description: "Enterprise resource planning...." }
                 ]}
             />
             <AppCategory
