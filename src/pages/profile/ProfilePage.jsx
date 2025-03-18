@@ -30,8 +30,8 @@ export default function ProfilePage() {
             style={{
                 display: "flex",
                 width: "100%",
-                height: "calc(100vh - 64px)",
-                marginTop: "64px",
+                height: "calc(100vh - 72px)",
+                marginTop: "72px",
             }}
         >
             <LeftPanel>
