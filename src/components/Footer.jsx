@@ -9,6 +9,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { Facebook, Twitter, LinkedIn, YouTube, Email, Phone, LocationOn } from "@mui/icons-material";
+import VGU_Logo_Short from "../assets/VGU_logo_short.png";
 
 const Footer = () => {
   return (
@@ -55,14 +56,8 @@ const Footer = () => {
         <Grid container spacing={4}>
           {/* Logo */}
           <Grid item xs={12} md={4}>
-            <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-              VGU
-            </Typography>
-            <Typography variant="body2">
-              VIETNAMESE-GERMAN UNIVERSITY
-            </Typography>
+            <img src={VGU_Logo_Short} alt="VGU Logo" style={{ height: "200px" }} />
           </Grid>
-
           {/* Quick Links */}
           <Grid item xs={12} md={4}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>

@@ -1,36 +1,18 @@
-import { AppBar, Badge, Box, Button, IconButton, Toolbar } from "@mui/material";
-import { AccountCircle, MailOutline, Notifications } from "@mui/icons-material";
-// @ts-ignore
-import VGU_Logo from "../assets/logo_white.png";
+import { AppBar, Badge, Box, IconButton, Toolbar } from "@mui/material";
+import { MailOutline, Notifications } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 import React, { useState } from "react";
 import AccountMenu from "./AccountMenu";
+import SchoolLogo from "./SchoolLogo";
 
 function NavigationBar() {
     const navigator = useNavigate();
     const [isAdmin, setIsAdmin] = useState(true);
 
     return (
-        <AppBar position="fixed" sx={{ height: "64px" }}>
+        <AppBar position="fixed" sx={{ height: "72px" }}>
             <Toolbar>
-                <div
-                    style={{
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                        paddingTop: "8px",
-                        paddingBottom: "8px",
-                        marginLeft: "16px",
-                    }}
-                    onClick={() => navigator("/")}
-                >
-                    <img
-                        src={VGU_Logo}
-                        alt="VGU Logo"
-                        className="logo"
-                        style={{ height: "48px" }}
-                    />
-                </div>
+                <SchoolLogo navigator={navigator} />
                 <Box sx={{ flexGrow: 1 }} />
                 <Box
                     sx={{

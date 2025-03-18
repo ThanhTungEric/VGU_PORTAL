@@ -1,8 +1,9 @@
 import React from "react";
 import LeftPanel from "../../components/LeftPanel";
 import RightPanel from "../../components/RightPanel";
-import { Box, Tab, Tabs } from "@mui/material";
+import { Box, Tab, Tabs, Typography } from "@mui/material";
 import TabPanel from "../../components/TabPanel";
+import UserManagerView from "./UserManagerView";
 
 function tabProps(index) {
     return {
@@ -23,11 +24,14 @@ export default function AdminPage() {
             style={{
                 display: "flex",
                 width: "100%",
-                height: "calc(100vh - 64px)",
-                marginTop: "64px",
+                height: "calc(100vh - 72px)",
+                marginTop: "72px",
             }}
         >
             <LeftPanel>
+                <Typography variant="h3" sx={{ textAlign: "center", marginBottom: "" }}>
+                    Admin Panel
+                </Typography>
                 <Tabs
                     orientation="vertical"
                     value={value}
@@ -41,27 +45,29 @@ export default function AdminPage() {
                         borderRadius: "10px",
                     }}
                 >
-                    <Tab label="User Management" {...tabProps(0)} />
-                    <Tab label="App Management" {...tabProps(1)} />
-                    <Tab label="Group Management" {...tabProps(2)} />
+                    <Tab label="User" {...tabProps(0)} />
+                    <Tab label="Application" {...tabProps(1)} />
+                    <Tab label="Group" {...tabProps(2)} />
+                    <Tab label="Permissions" {...tabProps(3)} />
                 </Tabs>
             </LeftPanel>
             <RightPanel
                 sx={{
-                    paddingTop: "10vh",
-                    paddingBottom: "10vh",
-                    paddingLeft: "64px",
-                    paddingRight: "25px",
+                    justifyContent: "center",
+                    alignItems: "center",
                 }}
             >
                 <TabPanel value={value} index={0}>
-                    <div></div>
+                    <UserManagerView />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     pppppp
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     KOPDWQ
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    what the up 123
                 </TabPanel>
             </RightPanel>
         </div>
