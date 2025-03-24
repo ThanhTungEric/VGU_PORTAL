@@ -5,6 +5,8 @@ import { Box, Tab, Tabs, Typography } from "@mui/material";
 import TabPanel from "../../components/TabPanel";
 import UserManagerView from "./UserManagerView";
 
+import QandAview from "./QandAview";
+
 function tabProps(index) {
     return {
         id: `vertical-tab-${index}`,
@@ -49,6 +51,7 @@ export default function AdminPage() {
                     <Tab label="Application" {...tabProps(1)} />
                     <Tab label="Group" {...tabProps(2)} />
                     <Tab label="Permissions" {...tabProps(3)} />
+                    <Tab label="Q&A" {...tabProps(4)} />
                 </Tabs>
             </LeftPanel>
             <RightPanel
@@ -68,6 +71,11 @@ export default function AdminPage() {
                 </TabPanel>
                 <TabPanel value={value} index={3}>
                     what the up 123
+                </TabPanel>
+                <TabPanel value={value} index={4}>
+                    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+                        <QandAview />
+                    </Box>
                 </TabPanel>
             </RightPanel>
         </div>
