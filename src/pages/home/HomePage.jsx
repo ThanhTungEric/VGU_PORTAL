@@ -3,6 +3,7 @@ import { Container, CircularProgress } from "@mui/material";
 import AppCategory from "./AppCategory";
 import SearchBar from "./SearchBar";
 import {CATEGORIES, APPLICATIONS} from "../../api/admin";
+import Chatbot from "./Chatbot";
 
 const Home = () => {
     const [categories, setCategories] = useState([]);
@@ -52,6 +53,9 @@ const Home = () => {
                     apps={applications.filter((app) => app.categoryId === category.id)}
                 />
             ))}
+
+            <Chatbot />
+
         </Container>
     );
 };
