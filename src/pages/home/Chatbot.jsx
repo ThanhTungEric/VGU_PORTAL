@@ -20,7 +20,7 @@ const Chatbot = () => {
   // Fetch categories from backend
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:9090/all-categories");
+      const response = await axios.get("https://test.portal.vgu.edu.vn/chatbot/all-categories");
       console.log("Fetched categories:", response.data);
       setCategories(response.data);
     } catch (error) {
@@ -31,7 +31,7 @@ const Chatbot = () => {
   // Fetch recommended questions when a category is clicked
   const fetchRecommendedQuestions = async (categoryId) => {
     try {
-      const response = await axios.get(`http://127.0.0.1:9090/recommended-questions?category_id=${categoryId}`);
+      const response = await axios.get(`https://test.portal.vgu.edu.vn/chatbot/recommended-questions?category_id=${categoryId}`);
       setRecommendedQuestions(response.data);
       setSelectedCategory(categoryId);
     } catch (error) {
@@ -48,7 +48,7 @@ const Chatbot = () => {
     setUserInput("");
 
     try {
-      const response = await axios.post("http://127.0.0.1:9090/chat", { question: message });
+      const response = await axios.post("https://test.portal.vgu.edu.vn/chatbot/chat", { question: message });
       setMessages([...newMessages, { text: response.data.answer, sender: "bot" }]);
     } catch (error) {
       console.error("Error fetching response:", error);

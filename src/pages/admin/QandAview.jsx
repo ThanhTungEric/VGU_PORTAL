@@ -23,7 +23,7 @@ export default function QandAview() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:9090/all-questions");
+                const response = await axios.get("https://test.portal.vgu.edu.vn/chatbot/all-questions");
                 const rows = response.data.map((item, index) => ({
                     id: item.id || index + 1,
                     category: item.category || "",
@@ -44,7 +44,7 @@ export default function QandAview() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:9090/all-categories");
+                const response = await axios.get("https://test.portal.vgu.edu.vn/chatbot/all-categories");
                 setCategories(response.data);
             } catch (error) {
                 console.error("Error fetching categories:", error);
@@ -68,10 +68,10 @@ export default function QandAview() {
         }
 
         try {
-            const response = await axios.post("http://127.0.0.1:9090/add-question", form);
+            const response = await axios.post("https://test.portal.vgu.edu.vn/chatbot/add-question", form);
             if (response.status === 200) { 
                 // Refresh data after successful addition
-                const updatedResponse = await axios.get("http://127.0.0.1:9090/all-questions");
+                const updatedResponse = await axios.get("https://test.portal.vgu.edu.vn/chatbot/all-questions");
                 setData(updatedResponse.data);
 
                 // Reset form & close modal
@@ -92,7 +92,7 @@ export default function QandAview() {
     const handleEditSubmit = async () => {
         if (!selectedRow) return;
         try {
-            const response = await axios.put(`http://127.0.0.1:9090/update-question/${selectedRow.id}`, form);
+            const response = await axios.put(`https://test.portal.vgu.edu.vn/chatbot/update-question/${selectedRow.id}`, form);
             
             if (response.status === 200) {
                 alert("Question updated successfully!");  // ✅ Feedback to user
@@ -108,7 +108,7 @@ export default function QandAview() {
 
     const handleHideClick = async (id) => {
         try {
-            await axios.patch(`http://127.0.0.1:9090/hide-question/${id}`);
+            await axios.patch(`https://test.portal.vgu.edu.vn/chatbot/hide-question/${id}`);
             setData(data.map((row) => 
                 row.id === id ? { ...row, hidden: !row.hidden } : row
             ));
